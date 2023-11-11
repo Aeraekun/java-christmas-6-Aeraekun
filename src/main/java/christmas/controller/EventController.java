@@ -1,13 +1,14 @@
 package christmas.controller;
 
-import static christmas.constant.message.OutputMessage.*;
+
+import static christmas.view.OutputHelloView.outputHello;
 public class EventController {
     public void event() {
-
+        printStart();
     }
 
     public void printStart() {
-
+        outputHello();
     }
 
     public void getDate() {
