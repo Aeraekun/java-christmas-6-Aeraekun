@@ -8,7 +8,7 @@ import static christmas.constant.Number.MAX_DATE;
 import static christmas.constant.Number.MIN_DATE;
 import static christmas.constant.message.ErrorMessage.INVALID_ORDER;
 
-public record Order(EnumMap<Menu, Integer> orderMenu) {
+public record Order(EnumMap<Menu, Integer> order) {
 
     public Order{
     }

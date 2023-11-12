@@ -13,7 +13,6 @@ public class InputOrderView {
     public static EnumMap<Menu, Integer> inputOrder() {
         System.out.println(ORDER);
         typeCasting();
-        exceptionCheck();
         return order;
     }
 
@@ -26,9 +25,5 @@ public class InputOrderView {
             System.out.println(menuItem + parts[1]);
             order.put(menuItem, quantity);
         }
-    }
-
-    private static void exceptionCheck() {
-
     }
 }

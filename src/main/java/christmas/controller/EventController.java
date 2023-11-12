@@ -4,12 +4,14 @@ package christmas.controller;
 import christmas.domain.Date;
 import christmas.domain.menu.Menu;
 import christmas.domain.Order;
+
 import java.util.EnumMap;
 
 import static christmas.constant.message.ErrorMessage.errorDate;
 import static christmas.view.InputDateView.inputDate;
 import static christmas.view.InputOrderView.inputOrder;
 import static christmas.view.OutputHelloView.outputHello;
+
 public class EventController {
     public void event() {
         printStart();
@@ -22,8 +24,19 @@ public class EventController {
     }
 
     public Date getDate() {
-        int date = inputDate();
-        return new Date(date);
+        int tempDate;
+        Date date;
+        while (true) {
+            try {
+                tempDate = inputDate();
+                date = new Date(tempDate);
+                break;
+            } catch (IllegalArgumentException e) {
+                errorDate();
+            }
+        }
+        return date;
+
     }
 
     public Order getOrder() {
