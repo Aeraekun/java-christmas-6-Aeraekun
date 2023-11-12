@@ -4,9 +4,9 @@ package christmas.controller;
 import christmas.domain.Date;
 import christmas.domain.menu.Menu;
 import christmas.domain.Order;
-
 import java.util.EnumMap;
 
+import static christmas.constant.message.ErrorMessage.errorDate;
 import static christmas.view.InputDateView.inputDate;
 import static christmas.view.InputOrderView.inputOrder;
 import static christmas.view.OutputHelloView.outputHello;
@@ -27,8 +27,18 @@ public class EventController {
     }
 
     public Order getOrder() {
-        EnumMap<Menu, Integer> order = inputOrder();
-        return new Order(order);
+        EnumMap<Menu, Integer> tempOrder;
+        Order order;
+        while (true) {
+            try {
+                tempOrder = inputOrder();
+                order = new Order(tempOrder);
+                break;
+            } catch (IllegalArgumentException e) {
+                errorDate();
+            }
+        }
+        return order;
     }
 
     public void printMenu() {
