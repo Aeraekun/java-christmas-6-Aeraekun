@@ -8,6 +8,7 @@ import christmas.domain.Order;
 import java.util.EnumMap;
 
 import static christmas.constant.message.ErrorMessage.errorDate;
+import static christmas.constant.message.ErrorMessage.errorOrder;
 import static christmas.view.InputDateView.inputDate;
 import static christmas.view.InputOrderView.inputOrder;
 import static christmas.view.OutputHelloView.outputHello;
@@ -48,7 +49,7 @@ public class EventController {
                 order = new Order(tempOrder);
                 break;
             } catch (IllegalArgumentException e) {
-                errorDate();
+                errorOrder();
             }
         }
         return order;
