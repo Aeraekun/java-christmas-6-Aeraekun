@@ -1,6 +1,5 @@
 package christmas.controller;
 
-
 import christmas.domain.Date;
 import christmas.domain.menu.Menu;
 import christmas.domain.Order;
@@ -37,7 +36,6 @@ public class EventController {
             }
         }
         return date;
-
     }
 
     public Order getOrder() {
