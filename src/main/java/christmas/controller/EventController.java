@@ -2,13 +2,19 @@ package christmas.controller;
 
 
 import christmas.domain.Date;
+import christmas.domain.menu.Menu;
+import christmas.domain.Order;
+
+import java.util.EnumMap;
 
 import static christmas.view.InputDateView.inputDate;
+import static christmas.view.InputOrderView.inputOrder;
 import static christmas.view.OutputHelloView.outputHello;
 public class EventController {
     public void event() {
         printStart();
         Date date = getDate();
+        Order order = getOrder();
     }
 
     public void printStart() {
@@ -20,8 +26,9 @@ public class EventController {
         return new Date(date);
     }
 
-    public void getMenu() {
-
+    public Order getOrder() {
+        EnumMap<Menu, Integer> order = inputOrder();
+        return new Order(order);
     }
 
     public void printMenu() {
