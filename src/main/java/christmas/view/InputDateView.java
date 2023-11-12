@@ -17,7 +17,7 @@ public class InputDateView {
                 exceptionCheck();
                 break;
             } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
+                System.out.println(INVALID_DATE);
             }
         }
         return date;
@@ -25,7 +25,7 @@ public class InputDateView {
 
     private static void exceptionCheck() {
         if (date < MIN_DATE || date > MAX_DATE) {
-            throw new IllegalArgumentException(INVALID_DATE);
+            throw new IllegalArgumentException();
         }
     }
 }
