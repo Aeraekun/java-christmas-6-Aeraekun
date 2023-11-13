@@ -11,6 +11,7 @@ import static christmas.view.InputOrderView.inputOrder;
 import static christmas.view.OutputAfterDiscountView.outputAfterDiscount;
 import static christmas.view.OutputAllBenefitView.outputAllBenefit;
 import static christmas.view.OutputBeforeDiscountView.outputBeforeDiscount;
+import static christmas.view.OutputEventBadgeView.outputEventBadge;
 import static christmas.view.OutputEventView.outputEvent;
 import static christmas.view.OutputGiftView.outputGift;
 import static christmas.view.OutputHelloView.outputHello;
@@ -31,6 +32,7 @@ public class EventController {
         printEvent(event);
         printAllBenefit(event);
         printAfterDiscount(event, price);
+        printEventBadge(event);
     }
 
     public void printStart() {
@@ -81,7 +83,7 @@ public class EventController {
         outputAfterDiscount(event, price);
     }
 
-    public void printEventBadge() {
-
+    public void printEventBadge(Event event) {
+        outputEventBadge(event);
     }
 }

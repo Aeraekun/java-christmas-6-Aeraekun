@@ -69,13 +69,13 @@ public record Event(Date date, Order order, Price price) {
     }
 
     public String badge() {
-        if (allBenefit() > SANTA) {
+        if (allBenefit() >= SANTA) {
             return SANTA_BADGE;
         }
-        if (allBenefit() > TREE) {
+        if (allBenefit() >= TREE) {
             return TREE_BADGE;
         }
-        if (allBenefit() > STAR) {
+        if (allBenefit() >= STAR) {
             return STAR_BADGE;
         }
         return NOTHING;

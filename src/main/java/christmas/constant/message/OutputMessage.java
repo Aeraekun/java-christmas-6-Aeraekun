@@ -24,4 +24,5 @@ public class OutputMessage {
     public static final String ALL_DISCOUNT = NEWLINE + "<총혜택 금액>";
     public static final String MINUS = "-";
     public static final String AFTER_DISCOUNT_TITLE = NEWLINE + "<할인 후 예상 결제 금액>";
+    public static final String BADGE_TITLE = NEWLINE + "<12월 이벤트 배지>";
 }
