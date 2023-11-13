@@ -57,6 +57,14 @@ class OrderTest extends NsTest {
         });
     }
 
+    @Test
+    void 스무가지_이상_주문() {
+        assertSimpleTest(() -> {
+            runException("3", "티본스테이크-4,바비큐립-8,초코케이크-2,제로콜라-6,타파스-4,크리스마스파스타-5");
+            assertThat(output()).contains("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+        });
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
