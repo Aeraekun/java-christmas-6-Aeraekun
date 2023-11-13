@@ -8,6 +8,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import static christmas.constant.Number.TWENTY;
+import static christmas.constant.Number.ZERO;
 import static christmas.constant.message.ErrorMessage.INVALID_ORDER;
 
 public record Order(EnumMap<Menu, Integer> order) {
@@ -18,11 +20,13 @@ public record Order(EnumMap<Menu, Integer> order) {
 
     private void validate(EnumMap<Menu, Integer> order) {
         Set<String> names = new HashSet<>();
+        int count = ZERO;
         for (Map.Entry<Menu, Integer> entry : order.entrySet()) {
             Menu menu = entry.getKey();
             Integer i = entry.getValue();
             names.add(menu.name());
-            if (i <= 0) {
+            count+=i;
+            if (i <= ZERO || count > TWENTY) {
                 throw new IllegalArgumentException(INVALID_ORDER);
             }
         }

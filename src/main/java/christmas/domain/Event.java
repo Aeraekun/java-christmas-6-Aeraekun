@@ -22,7 +22,7 @@ public record Event(Date date, Order order, Price price) {
         if (price.price() < TEN_THOUSAND || (date.date() % SEVEN == ONE || date.date() % SEVEN == TWO)) {
             return ZERO;
         }
-        int count = 0;
+        int count = ZERO;
         for (Map.Entry<Menu, Integer> entry : order.order().entrySet()) {
             Menu menu = entry.getKey();
             Integer i = entry.getValue();
@@ -40,7 +40,7 @@ public record Event(Date date, Order order, Price price) {
         if (price.price() < TEN_THOUSAND || (date.date() % SEVEN != ONE && date.date() % SEVEN != TWO)) {
             return ZERO;
         }
-        int count = 0;
+        int count = ZERO;
         for (Map.Entry<Menu, Integer> entry : order.order().entrySet()) {
             Menu menu = entry.getKey();
             Integer i = entry.getValue();
@@ -62,7 +62,7 @@ public record Event(Date date, Order order, Price price) {
     }
 
     public int freeGift() {
-        if (price.price() < FREE_GIFT) {
+        if (price.price() > FREE_GIFT) {
             return Drink.샴페인.getPrice();
         }
         return ZERO;
