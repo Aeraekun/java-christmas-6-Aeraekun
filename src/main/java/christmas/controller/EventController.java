@@ -9,6 +9,7 @@ import static christmas.domain.calculator.PriceCalculator.calculatePrice;
 import static christmas.view.InputDateView.inputDate;
 import static christmas.view.InputOrderView.inputOrder;
 import static christmas.view.OutputBeforeDiscountView.outputBeforeDiscount;
+import static christmas.view.OutputEventView.outputEvent;
 import static christmas.view.OutputGiftView.outputGift;
 import static christmas.view.OutputHelloView.outputHello;
 import static christmas.view.OutputOrderView.outputOrder;
@@ -25,6 +26,7 @@ public class EventController {
         printBeforeDiscount(price);
         Event event = applyEvent(date, order, price);
         printGift(event);
+        printEvent(event);
     }
 
     public void printStart() {
@@ -63,8 +65,8 @@ public class EventController {
         outputGift(event);
     }
 
-    public void printDiscount() {
-
+    public void printEvent(Event event) {
+        outputEvent(event);
     }
 
     public void printAfterDiscount() {

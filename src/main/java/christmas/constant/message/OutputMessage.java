@@ -14,4 +14,10 @@ public class OutputMessage {
     public static final String NOTHING = "없음";
     public static final String FREE_GIFT_TITLE = NEWLINE + "<증정 메뉴>";
     public static final String CHAMPAGNE = "샴페인 1개";
+    public static final String EVENT_TITLE = NEWLINE + "<혜택 내역>";
+    public static final String D_DAY = "크리스마스 디데이 할인: -%s원" + NEWLINE;
+    public static final String WEEKDAY = "평일 할인: -%s원" + NEWLINE;
+    public static final String WEEKEND = "주말 할인: -%s원" + NEWLINE;
+    public static final String SPECIAL = "특별 할인: -%s원" + NEWLINE;
+    public static final String GIFT = "증정 이벤트: -%s원" + NEWLINE;
 }
