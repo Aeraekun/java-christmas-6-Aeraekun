@@ -22,35 +22,35 @@ public class OutputEventView {
 
     public static void d_DayNotZero(Event event) {
         if (event.d_Day() != ZERO) {
-            String tempPrice = String.format("%,d", event.d_Day());
+            String tempPrice = String.format(FORMAT, event.d_Day());
             System.out.printf(D_DAY, tempPrice);
         }
     }
 
     public static void weekDayNotZero(Event event) {
         if (event.weekday() != ZERO) {
-            String tempPrice = String.format("%,d", event.weekday());
+            String tempPrice = String.format(FORMAT, event.weekday());
             System.out.printf(WEEKDAY, tempPrice);
         }
     }
 
     public static void weekendNotZero(Event event) {
         if (event.weekend() != ZERO) {
-            String tempPrice = String.format("%,d", event.weekend());
+            String tempPrice = String.format(FORMAT, event.weekend());
             System.out.printf(WEEKEND, tempPrice);
         }
     }
 
     public static void specialNotZero(Event event) {
         if (event.special() != ZERO) {
-            String tempPrice = String.format("%,d", event.special());
+            String tempPrice = String.format(FORMAT, event.special());
             System.out.printf(SPECIAL, tempPrice);
         }
     }
 
     public static void freeGiftNotZero(Event event) {
         if (event.freeGift() != ZERO) {
-            String tempPrice = String.format("%,d", event.freeGift());
+            String tempPrice = String.format(FORMAT, event.freeGift());
             System.out.printf(GIFT, tempPrice);
         }
     }

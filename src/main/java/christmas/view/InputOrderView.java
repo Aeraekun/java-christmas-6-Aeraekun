@@ -10,6 +10,8 @@ import java.util.Set;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static christmas.constant.message.ErrorMessage.INVALID_ORDER;
 import static christmas.constant.message.InputMessage.ORDER;
+import static christmas.constant.message.OutputMessage.BAR;
+import static christmas.constant.message.OutputMessage.COMMA;
 import static christmas.view.ErrorOrderView.errorOrder;
 
 public class InputOrderView {
@@ -29,10 +31,10 @@ public class InputOrderView {
     }
 
     private static void typeCasting() {
-        String[] items = readLine().split(",");
+        String[] items = readLine().split(COMMA);
         Set<String> names = new HashSet<>();
         for (String item : items) {
-            String[] parts = item.split("-");
+            String[] parts = item.split(BAR);
             Menu menuItem = Menu.valueOf(parts[0]);
             int quantity = Integer.parseInt(parts[1]);
             if (names.contains(parts[0])) {

@@ -10,7 +10,7 @@ public class InputDateView {
 
     public static Date inputDate() {
         Date date;
-        while (true){
+        while (true) {
             try {
                 System.out.println(DATE);
                 date = new Date(Integer.parseInt(readLine()));
