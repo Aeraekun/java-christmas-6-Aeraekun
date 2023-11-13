@@ -3,6 +3,7 @@ package christmas.view;
 import christmas.domain.Order;
 import christmas.domain.menu.Menu;
 
+import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -16,18 +17,16 @@ public class InputOrderView {
     private static final EnumMap<Menu, Integer> tempOrder = new EnumMap<>(Menu.class);
 
     public static Order inputOrder() {
-        Order order;
         while (true) {
             try {
                 System.out.println(ORDER);
                 typeCasting();
-                order = new Order(tempOrder);
-                break;
+                return new Order(tempOrder);
             } catch (IllegalArgumentException e) {
                 errorOrder();
+                tempOrder.clear();
             }
         }
-        return order;
     }
 
     private static void typeCasting() {
