@@ -25,7 +25,7 @@ public record Order(EnumMap<Menu, Integer> order) {
             Menu menu = entry.getKey();
             Integer i = entry.getValue();
             names.add(menu.name());
-            count+=i;
+            count += i;
             if (i <= ZERO || count > TWENTY) {
                 throw new IllegalArgumentException(INVALID_ORDER);
             }

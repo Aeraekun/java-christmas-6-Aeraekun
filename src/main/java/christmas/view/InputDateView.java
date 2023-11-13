@@ -3,8 +3,8 @@ package christmas.view;
 import christmas.domain.Date;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
-import static christmas.constant.message.ErrorMessage.errorDate;
 import static christmas.constant.message.InputMessage.DATE;
+import static christmas.view.ErrorDateView.errorDate;
 
 public class InputDateView {
 

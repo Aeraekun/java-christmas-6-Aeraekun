@@ -9,8 +9,8 @@ import java.util.Set;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static christmas.constant.message.ErrorMessage.INVALID_ORDER;
-import static christmas.constant.message.ErrorMessage.errorOrder;
 import static christmas.constant.message.InputMessage.ORDER;
+import static christmas.view.ErrorOrderView.errorOrder;
 
 public class InputOrderView {
     private static final EnumMap<Menu, Integer> tempOrder = new EnumMap<>(Menu.class);
