@@ -8,10 +8,10 @@ import static christmas.constant.message.OutputMessage.*;
 public class OutputEventView {
     public static void outputEvent(Event event) {
         System.out.println(EVENT_TITLE);
-        if (event.sumDiscount() == ZERO) {
+        if (event.allBenefit() == ZERO) {
             System.out.println(NOTHING);
         }
-        if (event.sumDiscount() != ZERO) {
+        if (event.allBenefit() != ZERO) {
             d_DayNotZero(event);
             weekDayNotZero(event);
             weekendNotZero(event);

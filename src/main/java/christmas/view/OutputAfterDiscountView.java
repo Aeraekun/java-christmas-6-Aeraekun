@@ -3,13 +3,13 @@ package christmas.view;
 import christmas.domain.Event;
 import christmas.domain.Price;
 
-import static christmas.constant.message.OutputMessage.BEFORE_DISCOUNT_TITLE;
-import static christmas.constant.message.OutputMessage.WON;
+import static christmas.constant.message.OutputMessage.*;
 
 public class OutputAfterDiscountView {
     public static void outputAfterDiscount(Event event, Price price) {
-        String tempPrice = String.format("%,d", price.price());
-        System.out.println(BEFORE_DISCOUNT_TITLE);
-        System.out.println(tempPrice + WON);
+        int tempPrice = price.price() - event.afterDiscount();
+        String afterDiscount = String.format(FORMAT, tempPrice);
+        System.out.println(AFTER_DISCOUNT_TITLE);
+        System.out.println(afterDiscount + WON);
     }
 }

@@ -69,19 +69,23 @@ public record Event(Date date, Order order, Price price) {
     }
 
     public String badge() {
-        if (sumDiscount() > SANTA) {
+        if (allBenefit() > SANTA) {
             return SANTA_BADGE;
         }
-        if (sumDiscount() > TREE) {
+        if (allBenefit() > TREE) {
             return TREE_BADGE;
         }
-        if (sumDiscount() > STAR) {
+        if (allBenefit() > STAR) {
             return STAR_BADGE;
         }
         return NOTHING;
     }
 
-    public int sumDiscount() {
+    public int allBenefit() {
         return d_Day() + weekday() + weekend() + special() + freeGift();
+    }
+
+    public int afterDiscount() {
+        return d_Day() + weekday() + weekend() + special();
     }
 }
