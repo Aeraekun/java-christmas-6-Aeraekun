@@ -28,18 +28,7 @@ public class EventController {
     }
 
     public Order getOrder() {
-        EnumMap<Menu, Integer> tempOrder;
-        Order order;
-        while (true) {
-            try {
-                tempOrder = inputOrder();
-                order = new Order(tempOrder);
-                break;
-            } catch (IllegalArgumentException e) {
-                errorOrder();
-            }
-        }
-        return order;
+        return inputOrder();
     }
 
     public void printMenu() {

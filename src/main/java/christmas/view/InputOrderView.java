@@ -1,5 +1,6 @@
 package christmas.view;
 
+import christmas.domain.Order;
 import christmas.domain.menu.Menu;
 
 import java.util.EnumMap;
@@ -8,14 +9,24 @@ import java.util.Set;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static christmas.constant.message.ErrorMessage.INVALID_ORDER;
+import static christmas.constant.message.ErrorMessage.errorOrder;
 import static christmas.constant.message.InputMessage.ORDER;
 
 public class InputOrderView {
-    private static final EnumMap<Menu, Integer> order = new EnumMap<>(Menu.class);
+    private static final EnumMap<Menu, Integer> tempOrder = new EnumMap<>(Menu.class);
 
-    public static EnumMap<Menu, Integer> inputOrder() {
-        System.out.println(ORDER);
-        typeCasting();
+    public static Order inputOrder() {
+        Order order;
+        while (true) {
+            try {
+                System.out.println(ORDER);
+                typeCasting();
+                order = new Order(tempOrder);
+                break;
+            } catch (IllegalArgumentException e) {
+                errorOrder();
+            }
+        }
         return order;
     }
 
@@ -30,7 +41,7 @@ public class InputOrderView {
                 throw new IllegalArgumentException(INVALID_ORDER);
             }
             names.add(parts[0]);
-            order.put(menuItem, quantity);
+            tempOrder.put(menuItem, quantity);
         }
     }
 }
