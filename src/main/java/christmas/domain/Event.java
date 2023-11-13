@@ -8,6 +8,7 @@ import christmas.domain.menu.Menu;
 import java.util.Map;
 
 import static christmas.constant.Number.*;
+import static christmas.constant.message.OutputMessage.*;
 
 public record Event(Date date, Order order, Price price) {
     public int d_Day() {
@@ -69,15 +70,15 @@ public record Event(Date date, Order order, Price price) {
 
     public String badge() {
         if (sumDiscount() > SANTA) {
-            return "산타";
+            return SANTA_BADGE;
         }
         if (sumDiscount() > TREE) {
-            return "트리";
+            return TREE_BADGE;
         }
         if (sumDiscount() > STAR) {
-            return "별";
+            return STAR_BADGE;
         }
-        return "없음";
+        return NOTHING;
     }
 
     public int sumDiscount() {
