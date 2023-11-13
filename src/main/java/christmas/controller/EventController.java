@@ -6,6 +6,7 @@ import christmas.domain.Order;
 import static christmas.view.InputDateView.inputDate;
 import static christmas.view.InputOrderView.inputOrder;
 import static christmas.view.OutputHelloView.outputHello;
+import static christmas.view.OutputOrderView.outputOrder;
 import static christmas.view.OutputPreviewView.outputPreview;
 
 public class EventController {
@@ -14,6 +15,7 @@ public class EventController {
         Date date = getDate();
         Order order = getOrder();
         printPreview(date);
+        printOrder(order);
     }
 
     public void printStart() {
@@ -32,8 +34,8 @@ public class EventController {
         outputPreview(date);
     }
 
-    public void printMenu() {
-
+    public void printOrder(Order order) {
+        outputOrder(order);
     }
 
     public void printBeforeDiscount() {

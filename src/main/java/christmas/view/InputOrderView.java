@@ -3,7 +3,6 @@ package christmas.view;
 import christmas.domain.Order;
 import christmas.domain.menu.Menu;
 
-import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.HashSet;
 import java.util.Set;
