@@ -12,14 +12,14 @@ import static christmas.constant.message.OutputMessage.*;
 
 public record Event(Date date, Order order, Price price) {
     public int d_Day() {
-        if (date.date() < CHRISTMAS) {
-            return THOUSAND * (date.date() - MIN_DATE);
+        if (price.price() < TEN_THOUSAND || date.date() > CHRISTMAS) {
+            return ZERO;
         }
-        return ZERO;
+        return THOUSAND + (date.date() - MIN_DATE) * HUNDRED;
     }
 
     public int weekday() {
-        if (date.date() % SEVEN == ONE || date.date() % SEVEN == TWO) {
+        if (price.price() < TEN_THOUSAND || (date.date() % SEVEN == ONE || date.date() % SEVEN == TWO)) {
             return ZERO;
         }
         int count = 0;
@@ -37,7 +37,7 @@ public record Event(Date date, Order order, Price price) {
     }
 
     public int weekend() {
-        if (date.date() % SEVEN != ONE && date.date() % SEVEN != TWO) {
+        if (price.price() < TEN_THOUSAND || (date.date() % SEVEN != ONE && date.date() % SEVEN != TWO)) {
             return ZERO;
         }
         int count = 0;
@@ -55,14 +55,14 @@ public record Event(Date date, Order order, Price price) {
     }
 
     public int special() {
-        if (date.date() % SEVEN == THREE || date.date() == CHRISTMAS) {
-            return THOUSAND;
+        if (price.price() < TEN_THOUSAND || (date.date() % SEVEN != THREE && date.date() != CHRISTMAS)) {
+            return ZERO;
         }
-        return ZERO;
+        return THOUSAND;
     }
 
     public int freeGift() {
-        if (price.price() >= FREE_GIFT) {
+        if (price.price() < FREE_GIFT) {
             return Drink.샴페인.getPrice();
         }
         return ZERO;
