@@ -1,22 +1,19 @@
 package christmas.controller;
 
 import christmas.domain.Date;
-import christmas.domain.menu.Menu;
 import christmas.domain.Order;
 
-import java.util.EnumMap;
-
-import static christmas.constant.message.ErrorMessage.errorDate;
-import static christmas.constant.message.ErrorMessage.errorOrder;
 import static christmas.view.InputDateView.inputDate;
 import static christmas.view.InputOrderView.inputOrder;
 import static christmas.view.OutputHelloView.outputHello;
+import static christmas.view.OutputPreviewView.outputPreview;
 
 public class EventController {
     public void event() {
         printStart();
         Date date = getDate();
         Order order = getOrder();
+        printPreview(date);
     }
 
     public void printStart() {
@@ -29,6 +26,10 @@ public class EventController {
 
     public Order getOrder() {
         return inputOrder();
+    }
+
+    public void printPreview(Date date) {
+        outputPreview(date);
     }
 
     public void printMenu() {
