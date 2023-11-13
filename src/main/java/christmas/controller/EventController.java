@@ -24,18 +24,7 @@ public class EventController {
     }
 
     public Date getDate() {
-        int tempDate;
-        Date date;
-        while (true) {
-            try {
-                tempDate = inputDate();
-                date = new Date(tempDate);
-                break;
-            } catch (IllegalArgumentException e) {
-                errorDate();
-            }
-        }
-        return date;
+        return inputDate();
     }
 
     public Order getOrder() {
