@@ -20,4 +20,6 @@ public class OutputMessage {
     public static final String WEEKEND = "주말 할인: -%s원" + NEWLINE;
     public static final String SPECIAL = "특별 할인: -%s원" + NEWLINE;
     public static final String GIFT = "증정 이벤트: -%s원" + NEWLINE;
+    public static final String ALL_DISCOUNT = NEWLINE + "<총혜택 금액>";
+    public static final String MINUS = "-";
 }
