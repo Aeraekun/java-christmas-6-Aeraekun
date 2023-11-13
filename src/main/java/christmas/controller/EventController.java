@@ -3,6 +3,7 @@ package christmas.controller;
 import christmas.domain.Date;
 import christmas.domain.Order;
 import christmas.domain.Price;
+import christmas.domain.Event;
 
 import static christmas.domain.calculator.PriceCalculator.calculatePrice;
 import static christmas.view.InputDateView.inputDate;
@@ -21,6 +22,7 @@ public class EventController {
         printOrder(order);
         Price price = getBeforeDiscount(order);
         printBeforeDiscount(price);
+        Event event = applyEvent(date, order, price);
     }
 
     public void printStart() {
@@ -51,8 +53,8 @@ public class EventController {
         outputBeforeDiscount(price);
     }
 
-    public void applyEvent() {
-
+    public Event applyEvent(Date date, Order order, Price price) {
+        return new Event(date, order, price);
     }
 
     public void printGiftMenu() {

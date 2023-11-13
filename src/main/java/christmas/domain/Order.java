@@ -36,8 +36,8 @@ public record Order(EnumMap<Menu, Integer> order) {
             } catch (IllegalArgumentException e) {
                 break;
             }
-            throw new IllegalArgumentException(INVALID_ORDER);
         }
+        throw new IllegalArgumentException(INVALID_ORDER);
     }
 
 
