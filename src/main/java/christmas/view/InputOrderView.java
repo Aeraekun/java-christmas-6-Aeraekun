@@ -12,25 +12,25 @@ import static christmas.constant.message.ErrorMessage.INVALID_ORDER;
 import static christmas.constant.message.InputMessage.ORDER;
 import static christmas.constant.message.OutputMessage.BAR;
 import static christmas.constant.message.OutputMessage.COMMA;
-import static christmas.view.ErrorOrderView.errorOrder;
 
 public class InputOrderView {
-    private static final EnumMap<Menu, Integer> tempOrder = new EnumMap<>(Menu.class);
+    private final EnumMap<Menu, Integer> tempOrder = new EnumMap<>(Menu.class);
 
-    public static Order inputOrder() {
+    public Order inputOrder() {
         while (true) {
             try {
                 System.out.println(ORDER);
                 typeCasting();
                 return new Order(tempOrder);
             } catch (IllegalArgumentException e) {
-                errorOrder();
+                ErrorOrderView errorOrderView = new ErrorOrderView();
+                errorOrderView.errorOrder();
                 tempOrder.clear();
             }
         }
     }
 
-    private static void typeCasting() {
+    private void typeCasting() {
         String[] items = readLine().split(COMMA);
         Set<String> names = new HashSet<>();
         for (String item : items) {

@@ -1,22 +1,8 @@
 package christmas.controller;
 
-import christmas.domain.Date;
-import christmas.domain.Order;
-import christmas.domain.Price;
-import christmas.domain.Event;
-
-import static christmas.domain.calculator.PriceCalculator.calculatePrice;
-import static christmas.view.InputDateView.inputDate;
-import static christmas.view.InputOrderView.inputOrder;
-import static christmas.view.OutputAfterDiscountView.outputAfterDiscount;
-import static christmas.view.OutputAllBenefitView.outputAllBenefit;
-import static christmas.view.OutputBeforeDiscountView.outputBeforeDiscount;
-import static christmas.view.OutputEventBadgeView.outputEventBadge;
-import static christmas.view.OutputEventView.outputEvent;
-import static christmas.view.OutputGiftView.outputGift;
-import static christmas.view.OutputHelloView.outputHello;
-import static christmas.view.OutputOrderView.outputOrder;
-import static christmas.view.OutputPreviewView.outputPreview;
+import christmas.domain.*;
+import christmas.domain.calculator.PriceCalculator;
+import christmas.view.*;
 
 public class EventController {
     public void event() {
@@ -36,31 +22,38 @@ public class EventController {
     }
 
     public void printStart() {
-        outputHello();
+        OutputHelloView outputHello = new OutputHelloView();
+        outputHello.outputHello();
     }
 
     public Date getDate() {
-        return inputDate();
+        InputDateView inputDateView = new InputDateView();
+        return inputDateView.inputDate();
     }
 
     public Order getOrder() {
-        return inputOrder();
+        InputOrderView inputOrderView = new InputOrderView();
+        return inputOrderView.inputOrder();
     }
 
     public void printPreview(Date date) {
-        outputPreview(date);
+        OutputPreviewView outputPreviewView = new OutputPreviewView();
+        outputPreviewView.outputPreview(date);
     }
 
     public void printOrder(Order order) {
-        outputOrder(order);
+        OutputOrderView outputOrderView = new OutputOrderView();
+        outputOrderView.outputOrder(order);
     }
 
     public Price getBeforeDiscount(Order order) {
-        return calculatePrice(order);
+        PriceCalculator priceCalculator = new PriceCalculator();
+        return priceCalculator.calculatePrice(order);
     }
 
     public void printBeforeDiscount(Price price) {
-        outputBeforeDiscount(price);
+        OutputBeforeDiscountView outputBeforeDiscountView = new OutputBeforeDiscountView();
+        outputBeforeDiscountView.outputBeforeDiscount(price);
     }
 
     public Event applyEvent(Date date, Order order, Price price) {
@@ -68,22 +61,27 @@ public class EventController {
     }
 
     public void printGift(Event event) {
-        outputGift(event);
+        OutputGiftView outputGiftView = new OutputGiftView();
+        outputGiftView.outputGift(event);
     }
 
     public void printEvent(Event event) {
-        outputEvent(event);
+        OutputEventView outputEventView = new OutputEventView();
+        outputEventView.outputEvent(event);
     }
 
     public void printAllBenefit(Event event) {
-        outputAllBenefit(event);
+        OutputAllBenefitView outputAllBenefitView = new OutputAllBenefitView();
+        outputAllBenefitView.outputAllBenefit(event);
     }
 
     public void printAfterDiscount(Event event, Price price) {
-        outputAfterDiscount(event, price);
+        OutputAfterDiscountView outputAfterDiscountView = new OutputAfterDiscountView();
+        outputAfterDiscountView.outputAfterDiscount(event, price);
     }
 
     public void printEventBadge(Event event) {
-        outputEventBadge(event);
+        OutputEventBadgeView outputEventBadgeView = new OutputEventBadgeView();
+        outputEventBadgeView.outputEventBadge(event);
     }
 }

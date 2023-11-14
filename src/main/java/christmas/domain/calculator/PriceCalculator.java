@@ -9,7 +9,7 @@ import java.util.Map;
 import static christmas.constant.Number.ZERO;
 
 public class PriceCalculator {
-    public static Price calculatePrice(Order order) {
+    public Price calculatePrice(Order order) {
         int beforeDiscount = ZERO;
         for (Map.Entry<Menu, Integer> entry : order.order().entrySet()) {
             Menu menu = entry.getKey();

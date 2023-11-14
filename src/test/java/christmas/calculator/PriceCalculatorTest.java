@@ -1,23 +1,18 @@
 package christmas.calculator;
 
-import christmas.constant.Number;
 import christmas.domain.Order;
 import christmas.domain.Price;
 import christmas.domain.calculator.PriceCalculator;
-import christmas.domain.menu.Dessert;
-import christmas.domain.menu.Drink;
-import christmas.domain.menu.Entree;
 import christmas.domain.menu.Menu;
 import org.junit.jupiter.api.Test;
 
 import java.util.EnumMap;
-import java.util.Map;
 
 import static christmas.domain.menu.Menu.*;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PriceCalculatorTest {
+    PriceCalculator priceCalculator = new PriceCalculator();
 
     @Test
     void calculatePrice_ValidOrder_ShouldReturnCorrectPrice() {
@@ -29,10 +24,10 @@ public class PriceCalculatorTest {
         Order order = new Order(validOrder);
 
         // When
-        Price calculatedPrice = PriceCalculator.calculatePrice(order);
+        Price calculatedPrice = priceCalculator.calculatePrice(order);
 
         // Then
-        assertThat(calculatedPrice.price()).isEqualTo(186000); // You need to adjust this value based on the actual prices of each item
+        assertThat(calculatedPrice.price()).isEqualTo(186000);
     }
 
     @Test
@@ -41,7 +36,7 @@ public class PriceCalculatorTest {
         Order emptyOrder = new Order(new EnumMap<>(Menu.class));
 
         // When
-        Price calculatedPrice = PriceCalculator.calculatePrice(emptyOrder);
+        Price calculatedPrice = priceCalculator.calculatePrice(emptyOrder);
 
         // Then
         assertThat(calculatedPrice.price()).isZero();
