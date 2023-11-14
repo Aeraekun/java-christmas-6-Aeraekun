@@ -5,7 +5,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import christmas.Application;
+import christmas.domain.menu.Menu;
 import org.junit.jupiter.api.Test;
+
+import java.util.EnumMap;
 
 class OrderTest extends NsTest {
 
@@ -63,6 +66,23 @@ class OrderTest extends NsTest {
             runException("3", "티본스테이크-4,바비큐립-8,초코케이크-2,제로콜라-6,타파스-4,크리스마스파스타-5");
             assertThat(output()).contains("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
         });
+    }
+
+    @Test
+    void order_ValidOrder_ShouldBeCreated() {
+        // Given
+        EnumMap<Menu, Integer> validOrder = new EnumMap<>(Menu.class);
+        validOrder.put(Menu.양송이수프, 2);
+        validOrder.put(Menu.초코케이크, 1);
+        validOrder.put(Menu.시저샐러드, 3);
+
+        // When
+        Order order = new Order(validOrder);
+
+        // Then
+        assertThat(order.order()).containsEntry(Menu.양송이수프, 2);
+        assertThat(order.order()).containsEntry(Menu.초코케이크, 1);
+        assertThat(order.order()).containsEntry(Menu.시저샐러드, 3);
     }
 
     @Override
