@@ -57,13 +57,13 @@ class EventTest {
         Event event = new Event(date, order, price);
 
         // Then
-        assertThat(event.d_Day()).isEqualTo(3_400); // Adjust expected values based on your calculations
-        assertThat(event.weekday()).isEqualTo(4_046); // Adjust expected values based on your calculations
-        assertThat(event.weekend()).isEqualTo(0); // Adjust expected values based on your calculations
-        assertThat(event.special()).isEqualTo(1_000); // Adjust expected values based on your calculations
-        assertThat(event.freeGift()).isEqualTo(25_000); // Adjust expected values based on your calculations
-        assertThat(event.badge()).isEqualTo("산타"); // Adjust expected values based on your calculations
-        assertThat(event.allBenefit()).isEqualTo(33_446); // Adjust expected values based on your calculations
-        assertThat(event.afterDiscount()).isEqualTo(8_446); // Adjust expected values based on your calculations
+        assertThat(event.d_Day()).isEqualTo(3_400);
+        assertThat(event.weekday()).isEqualTo(4_046);
+        assertThat(event.weekend()).isEqualTo(0);
+        assertThat(event.special()).isEqualTo(1_000);
+        assertThat(event.freeGift()).isEqualTo(25_000);
+        assertThat(event.badge()).isEqualTo("산타");
+        assertThat(event.allBenefit()).isEqualTo(33_446);
+        assertThat(event.afterDiscount()).isEqualTo(8_446);
     }
 }
